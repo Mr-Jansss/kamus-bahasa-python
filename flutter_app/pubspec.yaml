@@ -1,0 +1,23 @@
+name: kamus_flutter
+description: Kamus Python (web + android emulator)
+publish_to: "none"
+version: 1.0.0+1
+environment:
+  sdk: ">=2.18.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  http: ^0.13.6
+  shared_preferences: ^2.0.15
+  provider: ^6.0.5
+  google_fonts: ^4.0.3
+  jwt_decoder: ^2.0.1
+  
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
