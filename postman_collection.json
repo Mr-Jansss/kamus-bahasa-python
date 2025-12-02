@@ -1,0 +1,179 @@
+{
+  "info": {
+    "name": "Kamus Python API",
+    "_postman_id": "kamus-python-collection",
+    "description": "Postman collection untuk backend Kamus Python (Node.js + MySQL).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Register",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"username\":\"user1\",\"password\":\"1234\"}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/auth/register",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "auth", "register"]
+        }
+      }
+    },
+    {
+      "name": "Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"username\":\"admin\",\"password\":\"admin123\"}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/auth/login",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "auth", "login"]
+        }
+      }
+    },
+    {
+      "name": "Get All Terms",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:3000/api/terms",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "terms"]
+        }
+      }
+    },
+    {
+      "name": "Add Term (Admin)",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{token}}" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"term\":\"Function\",\"definition\":\"Blablabla\",\"example\":\"def x(): pass\"}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/terms",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "terms"]
+        }
+      }
+    },
+    {
+      "name": "Update Term (Admin)",
+      "request": {
+        "method": "PUT",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{token}}" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"term\":\"Updated\",\"definition\":\"Updated def\",\"example\":\"test\"}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/terms/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "terms", "1"]
+        }
+      }
+    },
+    {
+      "name": "Delete Term (Admin)",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{token}}" }
+        ],
+        "url": {
+          "raw": "http://localhost:3000/api/terms/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "terms", "1"]
+        }
+      }
+    },
+    {
+      "name": "Add Favorite",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{token}}" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"term_id\":1}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/favorites",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "favorites"]
+        }
+      }
+    },
+    {
+      "name": "List Favorites",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{token}}" }
+        ],
+        "url": {
+          "raw": "http://localhost:3000/api/favorites/list",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "favorites", "list"]
+        }
+      }
+    },
+    {
+      "name": "Delete Favorite",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{token}}" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"favorite_id\":1}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/favorites/delete",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "favorites", "delete"]
+        }
+      }
+    }
+  ]
+}
